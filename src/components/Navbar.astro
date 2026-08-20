@@ -1,0 +1,146 @@
+---
+// Navbar.astro
+---
+
+<header class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="logo-link">
+      <img src="/icons8-invernadero-64.svg" alt="AquaSense IoT Logo" class="logo-icon" />
+      <span class="brand-name">AquaSense<span class="accent">IoT</span></span>
+    </a>
+    
+    <nav class="nav-links">
+      <a href="/" class="nav-item active">Inicio</a>
+      <a href="/sensores" class="nav-item">Sensores</a>
+      <a href="/historial" class="nav-item">Historial</a>
+      <a href="/configuracion" class="nav-item">Configuración</a>
+    </nav>
+
+    <div class="user-actions">
+      <button class="btn-primary">Dashboard</button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 15, 20, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease, padding 0.3s ease;
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease;
+  }
+
+  .logo-link:hover {
+    transform: scale(1.02);
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 0 8px rgba(103, 215, 26, 0.6));
+  }
+
+  .brand-name {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .accent {
+    color: #67D71A; /* Color extracted from the SVG icon */
+    font-weight: 900;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-item {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-item:hover, .nav-item.active {
+    color: #ffffff;
+  }
+
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #67D71A;
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 0 10px rgba(103, 215, 26, 0.5);
+  }
+
+  .nav-item:hover::after, .nav-item.active::after {
+    width: 100%;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #67D71A 0%, #4FB510 100%);
+    color: #051A05;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(103, 215, 26, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(103, 215, 26, 0.4);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* Can be enhanced with a hamburger menu later */
+    }
+    .user-actions {
+      display: none;
+    }
+  }
+</style>
